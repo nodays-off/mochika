@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Impact - Mochika Coffee | Fair Trade & Sustainability</title>
+    <meta name="description" content="Our impact goes beyond bags sold. Learn how Mochika supports Nicaraguan farmers, builds sustainable practices, and invests in community.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --kobicha: #6B4423;
+            --burnt-sienna: #E97451;
+            --light-brown: #B5927E;
+            --moss-green: #8A9A5B;
+            --powder-blue: #B0E0E6;
+            --linen: #FAF0E6;
+            --champagne-pink: #F4DED4;
+            --goldenrod: #DAA520;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--kobicha);
+            background-color: var(--linen);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(250, 240, 230, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(107, 68, 35, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--kobicha);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--burnt-sienna);
+        }
+
+        /* Hero Section */
+        .impact-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .impact-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .impact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(107, 68, 35, 0.7) 0%, rgba(138, 154, 91, 0.6) 100%);
+            z-index: 2;
+        }
+
+        .impact-hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 4rem 5%;
+            max-width: 600px;
+        }
+
+        .impact-hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+        }
+
+        .impact-hero-content p {
+            font-size: 1.3rem;
+            color: white;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+        }
+
+        .impact-hero-content .subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 6rem 5%;
+        }
+
+        /* Fair Relationships Section */
+        .fair-relationships {
+            background: white;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-block h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            margin-bottom: 2rem;
+        }
+
+        .content-block ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .content-block ul li {
+            font-size: 1.15rem;
+            color: var(--light-brown);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .content-block ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--moss-green);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .content-block p {
+            font-size: 1.15rem;
+            color: var(--light-brown);
+            line-height: 1.8;
+        }
+
+        .side-image {
+            height: 400px;
+            border-radius: 16px;
+            border: 1px solid #E8DAC8;
+            overflow: hidden;
+        }
+
+        .side-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sustainability Path Section */
+        .sustainability {
+            background: var(--champagne-pink);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-path {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            border: 1px solid #E8DAC8;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(107, 68, 35, 0.08);
+        }
+
+        .timeline-label {
+            display: inline-block;
+            background: var(--goldenrod);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-card p {
+            font-size: 1.1rem;
+            color: var(--light-brown);
+            line-height: 1.7;
+        }
+
+        /* Community Section */
+        .community {
+            background: var(--linen);
+        }
+
+        /* Metrics Section */
+        .metrics {
+            background: white;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 3rem auto 0;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .metric-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--goldenrod);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            color: var(--kobicha);
+            font-weight: 500;
+        }
+
+        .metric-sublabel {
+            font-size: 0.9rem;
+            color: var(--light-brown);
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .impact-cta {
+            background: var(--moss-green);
+            text-align: center;
+            color: white;
+        }
+
+        .impact-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: var(--goldenrod);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(218, 165, 32, 0.5);
+            background: #C9A71D;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: var(--kobicha);
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 2;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--burnt-sienna);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .placeholder-image {
+            background: linear-gradient(135deg, var(--champagne-pink) 0%, var(--powder-blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-brown);
+            font-weight: 500;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .impact-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2,
+            .content-block h2 {
+                font-size: 2.2rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .timeline-path {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">Mochika</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="impact-hero">
+        <img src="images/impact/hero_family.jpg" alt="Older and younger Nicaraguan coffee farmer working together" class="impact-hero-image">
+        <div class="impact-hero-content">
+            <h1>Impact from farm to cup</h1>
+            <p>For us, coffee is personal. Every bean connects our family, our community in Nicaragua, and you.</p>
+            <p class="subtitle">We measure success in more than bags sold.</p>
+        </div>
+    </section>
+
+    <!-- Fair Relationships Section -->
+    <section class="fair-relationships">
+        <div class="two-column">
+            <div class="content-block">
+                <h2>Fair relationships, not just transactions</h2>
+                <ul>
+                    <li>Direct relationships with family farms and neighboring growers</li>
+                    <li>Long-term buying commitments where possible</li>
+                    <li>Transparent quality, pricing, and expectations</li>
+                </ul>
+                <p>We start with our own family farms and a small circle of trusted neighbors, building the kind of relationships where everyone knows each other by name.</p>
+            </div>
+            <div class="side-image">
+                <img src="images/impact/sustainability_bag_leaf.jpg" alt="Sustainable coffee practices with coffee bag and leaf">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Path Section -->
+    <section class="sustainability">
+        <div class="section-header">
+            <h2>A sustainability path we can stand behind</h2>
+        </div>
+        <div class="timeline-path">
+            <div class="timeline-card">
+                <span class="timeline-label">Now</span>
+                <p>Responsible farming practices and careful use of resources at origin, plus recyclable or low-waste options where possible.</p>
+            </div>
+            <div class="timeline-card">
+                <span class="timeline-label">Next</span>
+                <p>Moving toward more compostable and refill-friendly packaging as we grow and our volumes support it.</p>
+            </div>
+            <div class="timeline-card">
+                <span class="timeline-label">Long Term</span>
+                <p>Fully sustainable packaging across our line, and logistics choices that prioritize the health of our communities and environment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community">
+        <div class="two-column">
+            <div class="side-image">
+                <img src="images/impact/community_education.jpg" alt="Community education and development programs">
+            </div>
+            <div class="content-block">
+                <h2>Rooted in community</h2>
+                <p>Mochika is built around our home region in Nicaragua. As the brand grows, we plan to reinvest a portion of profits into education and community projects that support the families who make this coffee possible.</p>
+                <ul>
+                    <li>Education and skills development</li>
+                    <li>Farm worker and family support</li>
+                    <li>Community-led projects</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics">
+        <div class="section-header">
+            <h2>Our Impact By The Numbers</h2>
+        </div>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-number">12,000+</div>
+                <div class="metric-label">Pounds of coffee purchased</div>
+                <div class="metric-sublabel">from family and partner farms</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">8</div>
+                <div class="metric-label">Partner farms</div>
+                <div class="metric-sublabel">in Nicaragua</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">3</div>
+                <div class="metric-label">Communities supported</div>
+                <div class="metric-sublabel">through direct partnerships</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">0</div>
+                <div class="metric-label">Shortcuts on quality</div>
+                <div class="metric-sublabel">ever</div>
+            </div>
+        </div>
+        <p style="text-align: center; color: var(--light-brown); margin-top: 2rem; font-size: 0.9rem;">Last updated: January 2025</p>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="impact-cta">
+        <h2>Want to learn more about how we source and who we work with?</h2>
+        <p>Discover our story and explore partnership opportunities.</p>
+        <div class="cta-buttons">
+            <a href="our-story.html" class="cta-button">Meet Our Family</a>
+            <a href="wholesale.html" class="cta-button secondary">Partner With Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mochika</h3>
+                <p>Awaken the World, one cup at a time.</p>
+                <p style="margin-top: 1rem;">Family-grown Nicaraguan coffee, roasted with care, shared with love.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="coffee.html">Shop Coffee</a>
+                <a href="wholesale.html">Wholesale</a>
+                <a href="impact.html">Impact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Learn More</h3>
+                <a href="#">Brewing Guides</a>
+                <a href="#">FAQs</a>
+                <a href="#">Nicaragua Origins</a>
+                <a href="#">Sustainability</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="mailto:hello@mochika.coffee">hello@mochika.coffee</a>
+                <p>Miami, FL & New York, NY</p>
+                <p style="margin-top: 1rem;">Rooted in Nicaragua 🇳🇮</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mochika Coffee. All rights reserved. Crafted with ❤️ and Nicaraguan heritage.</p>
+        </div>
+    </footer>
+</body>
+</html>
