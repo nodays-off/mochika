@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Mochika Coffee | Nicaraguan Family Heritage</title>
+    <meta name="description" content="Our family's journey from Nicaragua's coffee mountains to bringing exceptional coffee to the world. Generations of tradition, rooted in heritage.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --kobicha: #6B4423;
+            --burnt-sienna: #E97451;
+            --light-brown: #B5927E;
+            --moss-green: #8A9A5B;
+            --powder-blue: #B0E0E6;
+            --linen: #FAF0E6;
+            --champagne-pink: #F4DED4;
+            --goldenrod: #DAA520;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--kobicha);
+            background-color: var(--linen);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation - Same as home */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(250, 240, 230, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(107, 68, 35, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--kobicha);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--burnt-sienna);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--burnt-sienna);
+        }
+
+        /* Story Hero */
+        .story-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .story-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(107, 68, 35, 0.7) 0%, rgba(138, 154, 91, 0.6) 100%);
+            z-index: 2;
+        }
+
+        .story-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 900px;
+        }
+
+        .story-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+            line-height: 1.2;
+        }
+
+        .story-hero p {
+            font-size: 1.3rem;
+            color: white;
+            line-height: 1.8;
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Content Sections */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .section-intro h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-intro p {
+            font-size: 1.2rem;
+            color: var(--light-brown);
+            line-height: 1.8;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background: white;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .timeline-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .timeline-image {
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(107, 68, 35, 0.15);
+        }
+
+        .timeline-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timeline-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--kobicha);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-year {
+            font-size: 1rem;
+            color: var(--burnt-sienna);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            font-size: 1.1rem;
+            color: var(--light-brown);
+            line-height: 1.8;
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            background: var(--champagne-pink);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .pull-quote blockquote {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--kobicha);
+            line-height: 1.6;
+            font-style: italic;
+            position: relative;
+        }
+
+        .pull-quote blockquote::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--goldenrod);
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            opacity: 0.3;
+        }
+
+        /* Team Section */
+        .team {
+            background: var(--linen);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 4/5;
+            margin: 0 auto 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(107, 68, 35, 0.2);
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--kobicha);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            font-size: 1rem;
+            color: var(--burnt-sienna);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            font-size: 1.05rem;
+            color: var(--light-brown);
+            line-height: 1.7;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Nicaragua Section */
+        .nicaragua {
+            background: white;
+        }
+
+        .nicaragua-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nicaragua-map {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .nicaragua-map img {
+            width: 100%;
+            height: auto;
+        }
+
+        .nicaragua-content h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            margin-bottom: 1.5rem;
+        }
+
+        .nicaragua-content p {
+            font-size: 1.1rem;
+            color: var(--light-brown);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .nicaragua-facts {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .fact {
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .fact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--moss-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .fact-text h4 {
+            font-size: 1.2rem;
+            color: var(--kobicha);
+            margin-bottom: 0.3rem;
+        }
+
+        .fact-text p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .story-cta {
+            background: var(--moss-green);
+            text-align: center;
+            color: white;
+        }
+
+        .story-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: var(--goldenrod);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(218, 165, 32, 0.5);
+            background: #C9A71D;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: var(--kobicha);
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 2;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--burnt-sienna);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--burnt-sienna);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .placeholder-image {
+            background: linear-gradient(135deg, var(--champagne-pink) 0%, var(--powder-blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-brown);
+            font-weight: 500;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .story-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-intro h2 {
+                font-size: 2.2rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .nicaragua-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .pull-quote blockquote {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">Mochika</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="story-hero">
+        <!-- Replace with story_hero image -->
+        <img src="images/story/hero.jpg" alt="Panoramic view of a Nicaraguan coffee-growing valley at sunrise with rolling green hills and a distant volcano" class="story-hero-image" style="width: 100%; height: 100%;">
+        <div class="story-hero-content">
+            <h1>A Nicaraguan coffee story, brewed over generations</h1>
+            <p>Mochika is more than a brand name. It is our family's journey, our heritage, and the way we share Nicaragua's coffee with the world.</p>
+        </div>
+    </section>
+
+    <!-- Our Roots Section -->
+    <section class="content-section">
+        <div class="section-intro">
+            <h2>Our Roots</h2>
+            <p>Our family's story begins in the hills of Nicaragua, where coffee trees grew alongside stories, songs, and the rhythms of everyday life. Over the years we learned how to care for the land, harvest each cherry at its peak, and treat coffee as both craft and community.</p>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-image">
+                    <img src="images/story/generations.jpg" alt="Vintage farmer on coffee farm">
+                </div>
+                <div class="timeline-content">
+                    <p class="timeline-year">1960s - 1980s</p>
+                    <h3>It started with a small farm</h3>
+                    <p>Our grandparents cultivated their first coffee plants in the mountains of Nicaragua. Back then, it was about survival, community, and the simple pride of growing something beautiful. They learned the land intimately—every hillside, every microclimate—and passed that knowledge down through hands-on teaching.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-image">
+                    <img src="images/story/family_portrait.jpg" alt="Family working on coffee farm">
+                </div>
+                <div class="timeline-content">
+                    <p class="timeline-year">1990s - 2000s</p>
+                    <h3>Growing with the next generation</h3>
+                    <p>As children, we grew up running between the coffee rows, learning to identify ripe cherries by color and feel. Our parents expanded the farm, brought in better processing equipment, and built relationships with neighboring growers. Coffee became more than a crop—it was our identity.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-image">
+                    <img src="images/home/hero_main.jpg" alt="Modern coffee farm at sunrise">
+                </div>
+                <div class="timeline-content">
+                    <p class="timeline-year">2020s - Today</p>
+                    <h3>Sharing our heritage with the world</h3>
+                    <p>Mochika represents a new chapter. We're taking everything our family has learned—from sustainable farming to meticulous roasting—and bringing it to coffee lovers who care about quality, ethics, and story. Every bag is a bridge between our home in Nicaragua and yours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pull Quote -->
+    <section class="pull-quote">
+        <blockquote>
+            We believe good quality coffee should be accessible to everyone.
+        </blockquote>
+    </section>
+
+    <!-- Why Mochika Section -->
+    <section class="content-section">
+        <div class="section-intro">
+            <h2>Why we created Mochika</h2>
+            <p>We created Mochika to bring that same care and connection to your daily cup. We believe coffee should be more than a caffeine fix. It should be a moment to pause, connect, and awaken what matters most.</p>
+            <p style="margin-top: 1.5rem;">For us, great coffee has always been part of the rhythm of life in Nicaragua—something to share with neighbors, to linger over with family, to mark the start and end of each day. Now, we're inviting you into that tradition.</p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="section-intro">
+            <h2>The People Behind Mochika</h2>
+            <p>Coffee is personal. These are the faces and stories of the people who make Mochika possible.</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="images/story/family_portrait.jpg" alt="María Gonzalez, Founder">
+                </div>
+                <h3>María Gonzalez</h3>
+                <p class="team-role">Founder & Head Roaster</p>
+                <p class="team-bio">María grew up learning to cup coffee at her grandmother's kitchen table. After studying agriculture and coffee science, she returned to Nicaragua to launch Mochika. She oversees every roast, ensuring each batch honors her family's standards.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="images/story/generations.jpg" alt="Carlos Gonzalez, Farm Manager">
+                </div>
+                <h3>Carlos Gonzalez</h3>
+                <p class="team-role">Farm Manager</p>
+                <p class="team-bio">Carlos has spent his entire life on the family farm in Matagalpa. He knows every tree, every soil condition, and works closely with neighboring farmers to maintain the highest quality standards and sustainable practices.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="images/story/family_portrait.jpg" alt="Sofia Martinez, Quality Director">
+                </div>
+                <h3>Sofia Martinez</h3>
+                <p class="team-role">Quality & Community Director</p>
+                <p class="team-bio">Sofia bridges the gap between the farm and the customer. She leads quality control, manages relationships with partner farmers, and coordinates community initiatives that give back to Nicaragua's coffee-growing regions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nicaragua Section -->
+    <section class="nicaragua">
+        <div class="nicaragua-grid">
+            <div class="nicaragua-map">
+                <!-- Replace with story_nicaragua_map -->
+                <img src="images/story/nicaragua_map.jpg" alt="Nicaragua Map Illustration" style="aspect-ratio: 1; border-radius: 20px; width: 100%; object-fit: cover;">
+            </div>
+
+            <div class="nicaragua-content">
+                <h3>Why Nicaragua?</h3>
+                <p>Nicaragua's coffee-growing regions offer some of the most ideal conditions in the world. High elevations, rich volcanic soil, and cool nights slow ripening, allowing complex flavors to develop naturally.</p>
+                <p>This is what gives our beans their balanced sweetness, gentle acidity, and the smooth body that makes every cup memorable.</p>
+
+                <div class="nicaragua-facts">
+                    <div class="fact">
+                        <div class="fact-icon">⛰️</div>
+                        <div class="fact-text">
+                            <h4>High Elevation</h4>
+                            <p>Grown at 1,200-1,500 meters above sea level</p>
+                        </div>
+                    </div>
+
+                    <div class="fact">
+                        <div class="fact-icon">🌋</div>
+                        <div class="fact-text">
+                            <h4>Volcanic Soil</h4>
+                            <p>Mineral-rich earth that adds depth and complexity</p>
+                        </div>
+                    </div>
+
+                    <div class="fact">
+                        <div class="fact-icon">🌡️</div>
+                        <div class="fact-text">
+                            <h4>Perfect Climate</h4>
+                            <p>Cool nights and warm days create ideal growing conditions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="story-cta">
+        <h2>Taste Our Family's Heritage</h2>
+        <p>Every bag of Mochika carries generations of knowledge, care, and love for coffee. Experience the difference that comes from true farm-to-cup transparency.</p>
+        <a href="coffee.html" class="cta-button">Shop Our Coffee</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mochika</h3>
+                <p>Awaken the World, one cup at a time.</p>
+                <p style="margin-top: 1rem;">Family-grown Nicaraguan coffee, roasted with care, shared with love.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="coffee.html">Shop Coffee</a>
+                <a href="wholesale.html">Wholesale</a>
+                <a href="impact.html">Impact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Learn More</h3>
+                <a href="#">Brewing Guides</a>
+                <a href="#">FAQs</a>
+                <a href="#">Nicaragua Origins</a>
+                <a href="#">Sustainability</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="mailto:hello@mochika.coffee">hello@mochika.coffee</a>
+                <p>Miami, FL & New York, NY</p>
+                <p style="margin-top: 1rem;">Rooted in Nicaragua 🇳🇮</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mochika Coffee. All rights reserved. Crafted with ❤️ and Nicaraguan heritage.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

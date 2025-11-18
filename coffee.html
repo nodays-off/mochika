@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Coffee - Mochika Coffee | Premium Nicaraguan Coffee</title>
+    <meta name="description" content="Discover our family-grown Nicaraguan coffee. From light to dark roast, each blend tells the story of our heritage and commitment to quality.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --kobicha: #6B4423;
+            --burnt-sienna: #E97451;
+            --light-brown: #B5927E;
+            --moss-green: #8A9A5B;
+            --powder-blue: #B0E0E6;
+            --linen: #FAF0E6;
+            --champagne-pink: #F4DED4;
+            --goldenrod: #DAA520;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--kobicha);
+            background-color: var(--linen);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(250, 240, 230, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(107, 68, 35, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--kobicha);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--burnt-sienna);
+        }
+
+        .coffee-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--champagne-pink) 0%, var(--powder-blue) 100%);
+        }
+
+        .coffee-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .coffee-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(107, 68, 35, 0.3);
+            z-index: 2;
+        }
+
+        .coffee-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 800px;
+        }
+
+        .coffee-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+        }
+
+        .coffee-hero p {
+            font-size: 1.3rem;
+            color: white;
+            line-height: 1.8;
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+        }
+
+        section {
+            padding: 6rem 5%;
+        }
+
+        .filters {
+            background: white;
+            padding: 3rem 5%;
+            border-bottom: 1px solid var(--champagne-pink);
+        }
+
+        .filter-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: var(--kobicha);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            border: 2px solid var(--light-brown);
+            background: white;
+            color: var(--kobicha);
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--goldenrod);
+            border-color: var(--goldenrod);
+            color: white;
+        }
+
+        .products-section {
+            background: var(--linen);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(107, 68, 35, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(107, 68, 35, 0.2);
+        }
+
+        .product-image {
+            height: 400px;
+            background: var(--champagne-pink);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--goldenrod);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--kobicha);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-origin {
+            font-size: 0.9rem;
+            color: var(--burnt-sienna);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-notes {
+            font-size: 1rem;
+            color: var(--moss-green);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .product-description {
+            color: var(--light-brown);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--linen);
+            border-radius: 10px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            color: var(--light-brown);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--kobicha);
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--kobicha);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--goldenrod);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #C9A71D;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--kobicha);
+            border: 2px solid var(--kobicha);
+        }
+
+        .btn-secondary:hover {
+            background: var(--kobicha);
+            color: white;
+        }
+
+        .brew-guide {
+            background: var(--champagne-pink);
+            text-align: center;
+        }
+
+        .brew-guide h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            margin-bottom: 1rem;
+        }
+
+        .brew-guide p {
+            font-size: 1.2rem;
+            color: var(--light-brown);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .brew-image {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(107, 68, 35, 0.2);
+        }
+
+        .brew-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: var(--goldenrod);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(218, 165, 32, 0.5);
+            background: #C9A71D;
+        }
+
+        footer {
+            padding: 4rem 5%;
+            background: var(--kobicha);
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 2;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--burnt-sienna);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .placeholder-image {
+            background: linear-gradient(135deg, var(--champagne-pink) 0%, var(--powder-blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-brown);
+            font-weight: 500;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .coffee-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Mochika</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="coffee-hero">
+        <!-- Replace with coffee_hero_lineup -->
+        <img src="images/products/coffee_hero_lineup.jpg" alt="Three Mochika Coffee bags in a row" class="coffee-hero-image" style="width: 100%; height: 100%;">
+        <div class="coffee-hero-content">
+            <h1>Meet our Nicaraguan coffees</h1>
+            <p>Each roast is crafted from beans grown in Nicaragua, starting with our family's farms and trusted partners.</p>
+        </div>
+    </section>
+
+    <div class="filters">
+        <div class="filter-container">
+            <div class="filter-group">
+                <label>Roast Level:</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Light</button>
+                    <button class="filter-btn">Medium</button>
+                    <button class="filter-btn">Dark</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <label>Format:</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Whole Bean</button>
+                    <button class="filter-btn">Ground</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="products-section">
+        <div class="products-grid">
+            <!-- Product 1: Matagalpa Sunrise -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/home/product_matagalpa_sunrise.jpg" alt="Matagalpa Sunrise coffee bag">
+                    <span class="product-badge">Light Roast</span>
+                </div>
+                <div class="product-info">
+                    <h3>Matagalpa Sunrise</h3>
+                    <p class="product-origin">Matagalpa, Nicaragua</p>
+                    <p class="product-notes">Milk chocolate • bright citrus • honey</p>
+                    <p class="product-description">A bright, balanced cup with notes of citrus, milk chocolate, and honey. Single-origin from our family's region in Nicaragua. Perfect for your first mug of the day.</p>
+                    
+                    <div class="product-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Process</span>
+                            <span class="detail-value">Washed</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Elevation</span>
+                            <span class="detail-value">1,200-1,400m</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Best For</span>
+                            <span class="detail-value">Pour-over, Drip</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Size</span>
+                            <span class="detail-value">12oz (340g)</span>
+                        </div>
+                    </div>
+
+                    <p class="product-price">$16.99</p>
+                    <div class="product-buttons">
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <a href="#" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Golden Hour -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/home/product_golden_hour.jpg" alt="Golden Hour coffee bag">
+                    <span class="product-badge">Medium Roast</span>
+                </div>
+                <div class="product-info">
+                    <h3>Golden Hour</h3>
+                    <p class="product-origin">Jinotega, Nicaragua</p>
+                    <p class="product-notes">Caramel • roasted hazelnut • smooth</p>
+                    <p class="product-description">Medium roast with caramel sweetness and nutty undertones. Smooth and balanced for any time of day. Grown in the volcanic highlands of Nicaragua.</p>
+                    
+                    <div class="product-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Process</span>
+                            <span class="detail-value">Natural</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Elevation</span>
+                            <span class="detail-value">1,300-1,500m</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Best For</span>
+                            <span class="detail-value">All Methods</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Size</span>
+                            <span class="detail-value">12oz (340g)</span>
+                        </div>
+                    </div>
+
+                    <p class="product-price">$18.99</p>
+                    <div class="product-buttons">
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <a href="#" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Volcano Night -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/home/product_volcano_night.jpg" alt="Volcano Night coffee bag">
+                    <span class="product-badge">Dark Roast</span>
+                </div>
+                <div class="product-info">
+                    <h3>Volcano Night</h3>
+                    <p class="product-origin">Nueva Segovia, Nicaragua</p>
+                    <p class="product-notes">Dark chocolate • caramel • velvety body</p>
+                    <p class="product-description">A deeper roast with velvety body and notes of dark chocolate and caramel. Ideal for espresso and late-night conversations. From Nicaragua's richest volcanic soil.</p>
+                    
+                    <div class="product-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Process</span>
+                            <span class="detail-value">Washed</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Elevation</span>
+                            <span class="detail-value">1,100-1,300m</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Best For</span>
+                            <span class="detail-value">Espresso, French Press</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Size</span>
+                            <span class="detail-value">12oz (340g)</span>
+                        </div>
+                    </div>
+
+                    <p class="product-price">$19.99</p>
+                    <div class="product-buttons">
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <a href="#" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="brew-guide">
+        <h2>New to specialty coffee? We've got you.</h2>
+        <p>We believe great coffee should be simple, not snobby. Start with your favorite brew method and we'll guide you from there.</p>
+        
+        <div class="brew-image">
+            <img src="images/products/brew_guide.jpg" alt="Brewing Guide - Top-down coffee setup" style="height: 400px; width: 100%; object-fit: cover; border-radius: 20px;">
+        </div>
+
+        <a href="#" class="cta-button">Read Our Brewing Guides</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mochika</h3>
+                <p>Awaken the World, one cup at a time.</p>
+                <p style="margin-top: 1rem;">Family-grown Nicaraguan coffee, roasted with care, shared with love.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="coffee.html">Shop Coffee</a>
+                <a href="wholesale.html">Wholesale</a>
+                <a href="impact.html">Impact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Learn More</h3>
+                <a href="#">Brewing Guides</a>
+                <a href="#">FAQs</a>
+                <a href="#">Nicaragua Origins</a>
+                <a href="#">Sustainability</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="mailto:hello@mochika.coffee">hello@mochika.coffee</a>
+                <p>Miami, FL & New York, NY</p>
+                <p style="margin-top: 1rem;">Rooted in Nicaragua 🇳🇮</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mochika Coffee. All rights reserved. Crafted with ❤️ and Nicaraguan heritage.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active from siblings
+                this.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                // Add active to clicked
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

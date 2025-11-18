@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale & Import - Mochika Coffee | Partner With Us</title>
+    <meta name="description" content="Partner with Mochika for wholesale Nicaraguan coffee. Direct from origin, ethical sourcing, flexible formats for cafes, restaurants, and businesses.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --kobicha: #6B4423; --burnt-sienna: #E97451; --light-brown: #B5927E;
+            --moss-green: #8A9A5B; --powder-blue: #B0E0E6; --linen: #FAF0E6;
+            --champagne-pink: #F4DED4; --goldenrod: #DAA520;
+        }
+        body { font-family: 'Roboto', sans-serif; color: var(--kobicha); background-color: var(--linen); line-height: 1.6; }
+        nav { position: fixed; width: 100%; background: rgba(250, 240, 230, 0.95); backdrop-filter: blur(10px); padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 20px rgba(107, 68, 35, 0.1); }
+        .logo { font-size: 2rem; font-weight: 900; color: var(--kobicha); text-decoration: none; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--kobicha); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--burnt-sienna); }
+        .hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; margin-top: 80px; }
+        .hero-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(107, 68, 35, 0.6); z-index: 2; }
+        .hero-content { position: relative; z-index: 3; text-align: center; padding: 4rem 2rem; max-width: 900px; }
+        .hero h1 { font-size: 4rem; font-weight: 900; color: white; margin-bottom: 1.5rem; text-shadow: 2px 2px 20px rgba(0,0,0,0.4); }
+        .hero p { font-size: 1.3rem; color: white; line-height: 1.8; text-shadow: 1px 1px 10px rgba(0,0,0,0.3); }
+        section { padding: 6rem 5%; }
+        .benefits { background: white; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1200px; margin: 3rem auto 0; }
+        .benefit-card { text-align: center; padding: 2rem; }
+        .benefit-icon { width: 80px; height: 80px; background: var(--moss-green); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; }
+        .benefit-card h3 { font-size: 1.5rem; font-weight: 700; color: var(--kobicha); margin-bottom: 1rem; }
+        .benefit-card p { color: var(--light-brown); line-height: 1.7; }
+        .who-we-serve { background: var(--champagne-pink); }
+        .section-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
+        .section-header h2 { font-size: 3rem; font-weight: 900; color: var(--kobicha); margin-bottom: 1rem; }
+        .section-header p { font-size: 1.2rem; color: var(--light-brown); line-height: 1.8; }
+        .clients-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .client-item { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(107, 68, 35, 0.1); }
+        .client-item h4 { color: var(--kobicha); font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .client-item p { color: var(--light-brown); font-size: 0.95rem; }
+        .process { background: var(--linen); }
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 1200px; margin: 3rem auto 0; }
+        .step { position: relative; }
+        .step-number { width: 60px; height: 60px; background: var(--goldenrod); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 900; margin-bottom: 1.5rem; }
+        .step h3 { font-size: 1.8rem; font-weight: 700; color: var(--kobicha); margin-bottom: 1rem; }
+        .step p { color: var(--light-brown); line-height: 1.7; }
+        .contact-form-section { background: white; }
+        .form-container { max-width: 700px; margin: 0 auto; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 600; color: var(--kobicha); margin-bottom: 0.5rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid var(--champagne-pink); border-radius: 10px; font-family: 'Roboto', sans-serif; font-size: 1rem; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--goldenrod); }
+        .form-group textarea { min-height: 150px; resize: vertical; }
+        .submit-btn { width: 100%; padding: 1.2rem; background: var(--goldenrod); color: white; border: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; font-family: 'Roboto', sans-serif; }
+        .submit-btn:hover { background: #C9A71D; transform: translateY(-2px); }
+        footer { padding: 4rem 5%; background: var(--kobicha); color: white; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 2rem; max-width: 1400px; margin-left: auto; margin-right: auto; }
+        .footer-section h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .footer-section p, .footer-section a { color: rgba(255, 255, 255, 0.8); line-height: 2; text-decoration: none; display: block; }
+        .footer-section a:hover { color: var(--burnt-sienna); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.6); }
+        .placeholder-image { background: linear-gradient(135deg, var(--champagne-pink) 0%, var(--powder-blue) 100%); display: flex; align-items: center; justify-content: center; color: var(--light-brown); font-weight: 500; text-align: center; padding: 2rem; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .section-header h2 { font-size: 2.2rem; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Mochika</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <img src="images/wholesale/hero.jpg" alt="Two people cupping coffee" class="hero-image" style="width: 100%; height: 100%;">
+        <div class="hero-content">
+            <h1>Bring Mochika to your cafe, office, or store</h1>
+            <p>Partner with a Nicaraguan family that knows coffee from the inside out. From green bean imports to roasted wholesale, we build relationships that last.</p>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="section-header">
+            <h2>Partner Benefits</h2>
+            <p>When you work with Mochika, you're getting more than great coffee—you're joining a family committed to quality, ethics, and transparency.</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🌍</div>
+                <h3>Direct from Origin</h3>
+                <p>Our roots in Nicaragua allow us to source directly, starting with our own family farms and trusted neighbors.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">📦</div>
+                <h3>Flexible Formats</h3>
+                <p>Green beans, roasted wholesale, private label, or co-branded offerings as Mochika grows.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🤝</div>
+                <h3>Ethical & Transparent</h3>
+                <p>Clear communication about pricing, quality, and impact. You know exactly where your coffee comes from.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">📚</div>
+                <h3>Support & Training</h3>
+                <p>As we grow, we aim to offer cuppings, brew training, and marketing support to help your business thrive.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="who-we-serve">
+        <div class="section-header">
+            <h2>Who We Work With</h2>
+            <p>We partner with businesses of all sizes who share our values and love for great coffee.</p>
+        </div>
+        <div class="clients-list">
+            <div class="client-item">
+                <h4>☕ Cafes & Coffee Shops</h4>
+                <p>Offer your customers authentic Nicaraguan coffee with a story they'll love to hear.</p>
+            </div>
+            <div class="client-item">
+                <h4>🍽️ Restaurants & Bakeries</h4>
+                <p>Elevate your coffee program with ethically sourced, family-grown beans.</p>
+            </div>
+            <div class="client-item">
+                <h4>🏪 Boutique Grocery & Specialty Stores</h4>
+                <p>Stock a premium product that stands out and tells a genuine story.</p>
+            </div>
+            <div class="client-item">
+                <h4>🏢 Offices & Co-working Spaces</h4>
+                <p>Keep your team energized with quality coffee that makes a difference.</p>
+            </div>
+            <div class="client-item">
+                <h4>🔥 Micro-roasters & Private Label</h4>
+                <p>Source green beans directly from our farms for your roasting projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="section-header">
+            <h2>Our Process</h2>
+            <p>Working with Mochika is simple, personal, and built on partnership.</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Connect</h3>
+                <p>You tell us about your business, volume needs, and what you're looking for in a coffee partner. We listen and ask good questions.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Curate</h3>
+                <p>We recommend coffees, formats, and pricing that fit your needs. Sample our coffees and find the perfect match for your customers.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Deliver</h3>
+                <p>We handle logistics, maintain quality, and support you as a long-term partner. You focus on serving great coffee.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        <div class="section-header">
+            <h2>Start a Wholesale Conversation</h2>
+            <p>Fill out the form below and we'll get back to you within 24 hours to discuss how Mochika can support your business.</p>
+        </div>
+        <div class="form-container">
+            <form id="wholesaleForm">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="business">Business Name *</label>
+                    <input type="text" id="business" name="business" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="business-type">Type of Business *</label>
+                    <select id="business-type" name="business-type" required>
+                        <option value="">Select one...</option>
+                        <option value="cafe">Cafe / Coffee Shop</option>
+                        <option value="restaurant">Restaurant / Bakery</option>
+                        <option value="retail">Retail / Grocery</option>
+                        <option value="office">Office / Corporate</option>
+                        <option value="roaster">Micro-roaster</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="volume">Estimated Monthly Volume</label>
+                    <input type="text" id="volume" name="volume" placeholder="e.g., 50 lbs, 100 lbs, etc.">
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us about your needs</label>
+                    <textarea id="message" name="message" placeholder="What are you looking for in a coffee partner? Any specific requirements or questions?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Request Samples & Pricing</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mochika</h3>
+                <p>Awaken the World, one cup at a time.</p>
+                <p style="margin-top: 1rem;">Family-grown Nicaraguan coffee, roasted with care, shared with love.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="coffee.html">Shop Coffee</a>
+                <a href="wholesale.html">Wholesale</a>
+                <a href="impact.html">Impact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Learn More</h3>
+                <a href="#">Brewing Guides</a>
+                <a href="#">FAQs</a>
+                <a href="#">Nicaragua Origins</a>
+                <a href="#">Sustainability</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="mailto:hello@mochika.coffee">hello@mochika.coffee</a>
+                <p>Miami, FL & New York, NY</p>
+                <p style="margin-top: 1rem;">Rooted in Nicaragua 🇳🇮</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mochika Coffee. All rights reserved. Crafted with ❤️ and Nicaraguan heritage.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('wholesaleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We\'ll be in touch within 24 hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
