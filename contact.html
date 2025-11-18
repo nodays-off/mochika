@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Mochika Coffee | Get in Touch</title>
+    <meta name="description" content="Get in touch with Mochika Coffee. Questions about wholesale, our story, or our Nicaraguan coffee? We'd love to hear from you.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --kobicha: #6B4423;
+            --burnt-sienna: #E97451;
+            --light-brown: #B5927E;
+            --moss-green: #8A9A5B;
+            --powder-blue: #B0E0E6;
+            --linen: #FAF0E6;
+            --champagne-pink: #F4DED4;
+            --goldenrod: #DAA520;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--kobicha);
+            background-color: var(--linen);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(250, 240, 230, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(107, 68, 35, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--kobicha);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--burnt-sienna);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--champagne-pink);
+            padding: 8rem 5% 6rem;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--light-brown);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        /* Left Column - Contact Form */
+        .contact-form-wrapper h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            margin-bottom: 1rem;
+        }
+
+        .contact-form-wrapper p {
+            font-size: 1.1rem;
+            color: var(--light-brown);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--kobicha);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E8DAC8;
+            border-radius: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--goldenrod);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--goldenrod);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: #C9A71D;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(218, 165, 32, 0.3);
+        }
+
+        /* Right Column - Contact Info */
+        .contact-info-wrapper h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            margin-bottom: 2rem;
+        }
+
+        .info-box {
+            background: #F7F1E8;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #E8DAC8;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--kobicha);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p {
+            font-size: 1.05rem;
+            color: var(--light-brown);
+            line-height: 1.6;
+        }
+
+        .info-item a {
+            color: var(--burnt-sienna);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .info-item a:hover {
+            color: var(--goldenrod);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 2px solid #E8DAC8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--kobicha);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .social-links a:hover {
+            background: var(--burnt-sienna);
+            color: white;
+            border-color: var(--burnt-sienna);
+            transform: translateY(-3px);
+        }
+
+        /* Visit Us Section */
+        .visit-section {
+            padding: 6rem 5%;
+            background: var(--linen);
+        }
+
+        .visit-section .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .visit-section h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--kobicha);
+            margin-bottom: 1rem;
+        }
+
+        .visit-section p {
+            font-size: 1.2rem;
+            color: var(--light-brown);
+            line-height: 1.8;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .location-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #E8DAC8;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(107, 68, 35, 0.12);
+        }
+
+        .location-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--kobicha);
+            margin-bottom: 1rem;
+        }
+
+        .location-card p {
+            color: var(--light-brown);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: var(--moss-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: var(--kobicha);
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 2;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--burnt-sienna);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .footer-social-links a:hover {
+            background: var(--burnt-sienna);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile Responsive */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--kobicha);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .visit-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">Mochika</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get in Touch</h1>
+            <p>Have a question about wholesale, our coffee, or our story? We'd love to hear from you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Left Column - Contact Form -->
+            <div class="contact-form-wrapper">
+                <h2>Send Us a Message</h2>
+                <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a topic...</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="wholesale">Wholesale</option>
+                            <option value="press">Press</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us how we can help..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Right Column - Contact Info -->
+            <div class="contact-info-wrapper">
+                <h2>Contact Information</h2>
+                <div class="info-box">
+                    <div class="info-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:hello@mochika.coffee">hello@mochika.coffee</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Location</h3>
+                        <p>Miami, FL & New York, NY</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Rooted In</h3>
+                        <p>Nicaragua</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday<br>9am - 5pm EST</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Connect With Us</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook">FB</a>
+                            <a href="#" aria-label="Instagram">IG</a>
+                            <a href="#" aria-label="Twitter">TW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Us Section -->
+    <section class="visit-section">
+        <div class="section-header">
+            <h2>Visit Us</h2>
+            <p>While we're currently online-only, we're working on bringing Mochika to a location near you.</p>
+        </div>
+        <div class="locations-grid">
+            <div class="location-card">
+                <h3>Miami, FL</h3>
+                <p>Physical retail location</p>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
+            <div class="location-card">
+                <h3>New York, NY</h3>
+                <p>Physical retail location</p>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
+            <div class="location-card">
+                <h3>Nicaragua</h3>
+                <p>Our family farms and origin tours</p>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mochika</h3>
+                <p>Awaken the World, one cup at a time.</p>
+                <p style="margin-top: 1rem;">Family-grown Nicaraguan coffee, roasted with care, shared with love.</p>
+                <div class="footer-social-links">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Twitter">TW</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="coffee.html">Shop Coffee</a>
+                <a href="wholesale.html">Wholesale</a>
+                <a href="impact.html">Impact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Learn More</h3>
+                <a href="#">Brewing Guides</a>
+                <a href="#">FAQs</a>
+                <a href="#">Nicaragua Origins</a>
+                <a href="#">Sustainability</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="mailto:hello@mochika.coffee">hello@mochika.coffee</a>
+                <p>Miami, FL & New York, NY</p>
+                <p style="margin-top: 1rem;">Rooted in Nicaragua</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mochika Coffee. All rights reserved. Crafted with Nicaraguan heritage.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Contact form validation and submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Basic validation
+            if (!name || !email || !subject || !message) {
+                alert('Please fill out all required fields.');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Success message
+            alert('Thank you for reaching out! We\'ll get back to you within 24 hours.');
+            this.reset();
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 2px 30px rgba(107, 68, 35, 0.15)';
+            } else {
+                nav.style.boxShadow = '0 2px 20px rgba(107, 68, 35, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
